@@ -16,6 +16,8 @@ import {
   SearchIcon,
   AdjustmentsIcon,
 } from 'react-native-heroicons/outline';
+import Categories from '../components/Categories';
+import FeaturedRow from '../components/FeaturedRow';
 
 const HomeScreen = () => {
   const navigation = useNavigation();
@@ -55,10 +57,44 @@ const HomeScreen = () => {
           <TextInput
             placeholder="Restaurant and Cuisinies"
             keyboardType="default"
+            className="flex-1"
           />
         </View>
         <AdjustmentsIcon color="#00CCBB" />
       </View>
+
+      {/* Body */}
+      <ScrollView
+        className="bg-gray-100"
+        contentContainerStyle={{ paddingBottom: 100 }}
+      >
+        {/* Categories */}
+        <Categories />
+
+        {/* Featured */}
+        <FeaturedRow
+          id="1"
+          title="Featured"
+          description="Paid placements from our partners"
+          // featuredCategory="featured"
+        />
+
+        {/* Tasty Discounts */}
+        <FeaturedRow
+          id="2"
+          title="Tasty Discounts"
+          description="Everyone's been enjoying these juicy discounts!"
+          // featuredCategory="discounts"
+        />
+
+        {/* Offers near you */}
+        <FeaturedRow
+          id="3"
+          title="Offers near you"
+          description="Why not support your local restaurant tonight!"
+          // featuredCategory="offers"
+        />
+      </ScrollView>
     </SafeAreaView>
   );
 };
